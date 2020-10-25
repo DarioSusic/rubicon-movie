@@ -1,9 +1,26 @@
-import React from 'react'
+import React, { Fragment, useEffect } from 'react';
+import { NavLink } from 'react-router-dom';
+import PropTypes from 'prop-types';
+import { connect } from 'react-redux';
 
-const Movies = () => {
-    return (
-        <div>Movies</div>
-    )
-}
+import Spinner from '../layout/Spinner';
+import { loadMovies } from '../../actions/movies';
 
-export default Movies
+const Movies = ({ loadMovies, movies: { loading, filter, page } }) => {
+	useEffect(() => {
+		loadMovies(page, filter);
+	}, []);
+
+	return <div>Movies</div>;
+};
+
+Movies.propTypes = {
+	loadMovies: PropTypes.func.isRequired,
+	movies: PropTypes.object.isRequired,
+};
+
+const mapStateToProps = (state) => ({
+	movies: state.movies,
+});
+
+export default connect(mapStateToProps, { loadMovies })(Movies);

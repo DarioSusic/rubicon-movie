@@ -1,2 +1,6 @@
 export const SET_ALERT = 'SET_ALERT';
 export const REMOVE_ALERT = 'REMOVE_ALERT';
+
+export const GET_MOVIES_REQUEST = 'GET_MOVIES_REQUEST';
+export const GET_MOVIES_SUCCESS = 'GET_MOVIES_SUCCESS';
+export const GET_MOVIES_ERROR   = 'GET_MOVIES_ERROR';
