@@ -12,6 +12,7 @@ import store from './store';
 import './App.css';
 import Movies from './components/movies/Movies';
 
+
 const App = () => {
 
   return (
