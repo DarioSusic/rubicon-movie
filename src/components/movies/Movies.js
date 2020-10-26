@@ -6,21 +6,43 @@ import { connect } from 'react-redux';
 import Spinner from '../layout/Spinner';
 import { loadMovies } from '../../actions/movies';
 
-const Movies = ({ loadMovies, movies: { loading, filter, page } }) => {
+import MovieItem from './MovieItem';
+
+const Movies = ({ loadMovies, movie: { movies, loading, filter, page } }) => {
 	useEffect(() => {
 		loadMovies(page, filter);
 	}, []);
 
-	return <div className='content'>Movies</div>;
+	return (
+		<Fragment>
+			{loading ? (
+				<Spinner />
+			) : (
+				<Fragment>
+					<div className='card'>
+						<div className='item'>
+							{movies.length > 0 ? (
+								movies.map((movie) => (
+									<MovieItem key={movie._id} movie={movie} />
+								))
+							) : (
+								<h4>No movies found...</h4>
+							)}
+						</div>
+					</div>
+				</Fragment>
+			)}
+		</Fragment>
+	);
 };
 
 Movies.propTypes = {
 	loadMovies: PropTypes.func.isRequired,
-	movies: PropTypes.object.isRequired,
+	movie: PropTypes.object.isRequired,
 };
 
 const mapStateToProps = (state) => ({
-	movies: state.movies,
+	movie: state.movies,
 });
 
 export default connect(mapStateToProps, { loadMovies })(Movies);
