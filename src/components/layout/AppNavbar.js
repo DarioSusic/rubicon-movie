@@ -1,21 +1,28 @@
 import React, { Fragment } from 'react';
-// import { NavLink } from 'react-router-dom';
-// import { connect } from 'react-redux';
-// import PropTypes from 'prop-types';
+import { Link } from 'react-router-dom';
+import { connect } from 'react-redux';
+import PropTypes from 'prop-types';
 
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 
 export const AppNavbar = () => {
-    return (
-      <Fragment>
-        <div>
-          <ul>
-            <li>movies</li>
-            <li>tv shows</li>
-          </ul>
-        </div>
-      </Fragment>
-  );
+	return (
+		<nav className='navbar bg-dark'>
+			<h1>
+				<Link to='/'>RUBICON MOVIES DB</Link>
+			</h1>
+			<Fragment>
+				<ul>
+					<li>
+						<Link to='/movies'>Movies</Link>
+					</li>
+					<li>
+						<Link to='/tv-shows'>TV Shows</Link>
+					</li>
+				</ul>
+			</Fragment>
+		</nav>
+	);
 };
 
-
-export default (AppNavbar);
+export default AppNavbar;

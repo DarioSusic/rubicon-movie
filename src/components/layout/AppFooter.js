@@ -3,16 +3,14 @@ import React, { Fragment } from 'react';
 // import { connect } from 'react-redux';
 // import PropTypes from 'prop-types';
 
-
 export const AppFooter = () => {
-    return (
-      <Fragment>
-        <div>
-          Footer
-        </div>
-      </Fragment>
-  );
+	return (
+		<Fragment>
+			<div className='footer bg-dark'>
+				<p>Footer</p>
+			</div>
+		</Fragment>
+	);
 };
 
-
-export default (AppFooter);
+export default AppFooter;

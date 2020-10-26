@@ -11,7 +11,7 @@ const Movies = ({ loadMovies, movies: { loading, filter, page } }) => {
 		loadMovies(page, filter);
 	}, []);
 
-	return <div>Movies</div>;
+	return <div className='content'>Movies</div>;
 };
 
 Movies.propTypes = {
