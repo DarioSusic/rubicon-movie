@@ -2,9 +2,13 @@ import {
 	GET_MOVIES_REQUEST,
 	GET_MOVIES_SUCCESS,
 	GET_MOVIES_ERROR,
+	GET_MOVIE_REQUEST,
+	GET_MOVIE_SUCCESS,
+	GET_MOVIE_ERROR,
 } from '../actions/types';
 
 const initialState = {
+	movie: {},
 	movies: [],
 	filter: 'popular',
 	isFetched: false,
@@ -31,6 +35,27 @@ export default function (state = initialState, action) {
 				loading: false,
 			};
 		case GET_MOVIES_ERROR:
+			return {
+				...state,
+				error: payload,
+				isFetched: false,
+				loading: true,
+			};
+		case GET_MOVIE_REQUEST:
+			return {
+				...state,
+				movie: {},
+				isFetched: false,
+				loading: true,
+			};
+		case GET_MOVIE_SUCCESS:
+			return {
+				...state,
+				movie: payload,
+				isFetched: true,
+				loading: false,
+			};
+		case GET_MOVIE_ERROR:
 			return {
 				...state,
 				error: payload,

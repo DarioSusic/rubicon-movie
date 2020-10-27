@@ -19,16 +19,14 @@ const Movies = ({ loadMovies, movie: { movies, loading, filter, page } }) => {
 				<Spinner />
 			) : (
 				<Fragment>
-					<div className='card'>
-						<div className='item'>
-							{movies.length > 0 ? (
-								movies.map((movie) => (
-									<MovieItem key={movie._id} movie={movie} />
-								))
-							) : (
-								<h4>No movies found...</h4>
-							)}
-						</div>
+					<div>
+						{movies.length > 0 ? (
+							movies.map((movie) => (
+								<MovieItem key={movie.id} movie={movie} movies={movie} />
+							))
+						) : (
+							<h4>No movies found...</h4>
+						)}
 					</div>
 				</Fragment>
 			)}
@@ -43,6 +41,8 @@ Movies.propTypes = {
 
 const mapStateToProps = (state) => ({
 	movie: state.movies,
+	movies: state.movie,
+	isFetched: state.movies.isFetched,
 });
 
 export default connect(mapStateToProps, { loadMovies })(Movies);

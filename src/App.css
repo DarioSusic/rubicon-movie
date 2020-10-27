@@ -378,11 +378,53 @@ body {
 
 /* Card */
 .card {
-	display: flex;
+	height: 300px;
 }
 
 .item {
-	order: 4;
+	background: tomato;
+	padding: 5px;
+	width: 200px;
+	height: 150px;
+	margin-top: 10px;
+	line-height: 150px;
+	color: white;
+	font-weight: bold;
+	font-size: 3em;
+	text-align: center;
+}
+
+.flex-container {
+	padding: 0;
+	margin: 0;
+	list-style: none;
+	border: 1px solid silver;
+	-ms-box-orient: horizontal;
+	display: -webkit-box;
+	display: -moz-box;
+	display: -ms-flexbox;
+	display: -moz-flex;
+	display: -webkit-flex;
+	display: flex;
+}
+
+.wrap {
+	-webkit-flex-wrap: wrap;
+	flex-wrap: wrap;
+}
+
+.flex-item {
+	background: tomato;
+	padding: 5px;
+	width: 100px;
+	height: 100px;
+	margin: 10px;
+
+	line-height: 100px;
+	color: white;
+	font-weight: bold;
+	font-size: 2em;
+	text-align: center;
 }
 
 .form input[type='submit'],

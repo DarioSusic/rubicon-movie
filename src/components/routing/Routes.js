@@ -4,26 +4,26 @@ import { Route, Switch } from 'react-router-dom';
 import Alert from '../layout/Alert';
 
 //Movies
-import Movies from '../movies/Movies'
+import Movies from '../movies/Movies';
+import Movie from '../movies/Movie';
 
 //TVShows
-import TVShows from '../tvshows/TVShows'
-
+import TVShows from '../tvshows/TVShows';
 
 import NotFound from '../layout/ErrorPage';
 
-
 const Routes = () => {
-  return (
-    <section className="container">
-      <Alert />
-      <Switch>
-        <Route exact path="/movies" component={Movies} />
-        <Route exact path="/tv-shows" component={TVShows} />
-        <Route component={NotFound} />
-      </Switch>
-    </section>
-  );
+	return (
+		<section className='container'>
+			<Alert />
+			<Switch>
+				<Route exact path='/movies' component={Movies} />
+				<Route exact path='/movie/:id' component={Movie} />
+				<Route exact path='/tv-shows' component={TVShows} />
+				<Route component={NotFound} />
+			</Switch>
+		</section>
+	);
 };
 
 export default Routes;
