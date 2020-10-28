@@ -1,5 +1,3 @@
-import { setAlert } from './alert';
-
 import axiosConfig from '../services/axiosConfig';
 
 import {
@@ -10,7 +8,6 @@ import {
 	GET_MOVIE_SUCCESS,
 	GET_MOVIE_ERROR,
 } from './types';
-import { connect } from 'react-redux';
 
 export const loadMovies = (pageNumber = 1, filter = 'popular') => async (
 	dispatch
@@ -22,7 +19,6 @@ export const loadMovies = (pageNumber = 1, filter = 'popular') => async (
 		const res = await axiosConfig.request.get(
 			`/movie/${filter}?page=${pageNumber}`
 		);
-		console.log('res' + res.data);
 		dispatch({
 			type: GET_MOVIES_SUCCESS,
 			payload: res.data.results,
@@ -40,13 +36,11 @@ export const loadMovies = (pageNumber = 1, filter = 'popular') => async (
 };
 
 export const loadMovie = (id) => async (dispatch) => {
-	console.log('OVO JE MOVIE ID ------------> ' + id);
 	dispatch({
 		type: GET_MOVIE_REQUEST,
 	});
 	try {
 		const res = await axiosConfig.request.get(`/movie/${id}`);
-		console.log('OVO JE DATA ---------> ' + res.data);
 		dispatch({
 			type: GET_MOVIE_SUCCESS,
 			payload: res.data,
